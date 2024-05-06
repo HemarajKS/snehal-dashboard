@@ -6,7 +6,7 @@ import FormControl from "@mui/material/FormControl";
 import { Select as MuiSelect } from "@mui/material";
 import Chip from "@mui/material/Chip";
 import "./Select.css";
-import { ChevronLeft } from "@mui/icons-material";
+import { ExpandMore } from "@mui/icons-material";
 
 export default function Select({
   items = [],
@@ -46,7 +46,7 @@ export default function Select({
           multiple={multiple}
           value={selected}
           onChange={handleChange}
-          // IconComponent={ChevronLeft}
+          IconComponent={ExpandMore}
           sx={{
             "& .MuiSelect-select": {
               py: "8px !important",
