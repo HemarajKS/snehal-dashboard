@@ -1,12 +1,12 @@
 import * as React from "react";
 import Box from "@mui/material/Box";
-import OutlinedInput from "@mui/material/OutlinedInput";
 import InputLabel from "@mui/material/InputLabel";
 import MenuItem from "@mui/material/MenuItem";
 import FormControl from "@mui/material/FormControl";
 import { Select as MuiSelect } from "@mui/material";
 import Chip from "@mui/material/Chip";
 import "./Select.css";
+import { ChevronLeft } from "@mui/icons-material";
 
 export default function Select({
   items = [],
@@ -30,14 +30,14 @@ export default function Select({
 
   return (
     <div>
-      <FormControl sx={{ width: "100%", mt: "24px" }}>
+      <FormControl sx={{ minWidth: "200px", mt: "24px" }}>
         <InputLabel
-          sx={{
-            "& .Mui-focused": {
-              color: "red",
-            },
-          }}
           shrink={false}
+          sx={{
+            transform: "translate(0px, 2px);",
+            padding: "8px 32px 8px 8px",
+            fontSize: "14px",
+          }}
         >
           {name}
         </InputLabel>
@@ -46,6 +46,17 @@ export default function Select({
           multiple={multiple}
           value={selected}
           onChange={handleChange}
+          // IconComponent={ChevronLeft}
+          sx={{
+            "& .MuiSelect-select": {
+              py: "8px !important",
+              pl: "8px",
+            },
+
+            "& .MuiSvgIcon-root": {
+              borderLeft: "1px solid rgb(204, 204, 204)",
+            },
+          }}
           renderValue={(selected) => (
             <Box sx={{ display: "flex", flexWrap: "wrap", gap: 0.5 }}>
               {selected.map((value) => (
